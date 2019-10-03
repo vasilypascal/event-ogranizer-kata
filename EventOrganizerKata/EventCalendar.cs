@@ -23,7 +23,25 @@ namespace EventOrganizerKata
         public void ShowEvents()
         {
             foreach (Event e in events)
+            {
                 e.ShowEvent();
+            }
+                
         }
+        public string CheckEventConflicts()
+        {
+            //events[]
+            for (int i = 0; i < events.Count; i++)
+            {
+                for (int k = 0; k < events.Count; k++)
+                {
+                    
+
+
+                }
+            }
+            return "";
+        }
+
     }
 }

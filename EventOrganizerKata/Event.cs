@@ -7,19 +7,23 @@ namespace EventOrganizerKata
     class Event
     {
         string name;
-        DateTime startDate;
-        DateTime finishDate;
+        public Period eventPeriod { get; set; }
 
-        public Event(string events)
+        public Event(string _event)
         {
-            string[] temp = events.Split(',');
+            string[] temp = _event.Split(',');
             name = temp[0];
-            startDate = Convert.ToDateTime(temp[1]);
-            finishDate = Convert.ToDateTime(temp[2]);
+            eventPeriod.Start = Convert.ToDateTime(temp[1]);
+            eventPeriod.End = Convert.ToDateTime(temp[2]);
         }
         public void ShowEvent()
         {
-            Console.WriteLine(name + "," + startDate + "," + finishDate);
+            Console.WriteLine(name + "," + eventPeriod);
+        }
+        public string GetTimeFrame()
+        {
+         
+            return "";
         }
     }
 }
