@@ -5,43 +5,39 @@ using System.Text;
 
 namespace EventOrganizerKata
 {
-    class EventCalendar
+    class EventCalendar : ICalendar
     {
-        List<Event> events = new List<Event>();
+        List<IEvent> events;
 
-        public EventCalendar(string path)
+        public EventCalendar(List<IEvent> events)
         {
-            using (StreamReader streamReader = new StreamReader(path))
+            if (events != null)
             {
-                while (!streamReader.EndOfStream)
-                {
-                    Event temp = new Event(streamReader.ReadLine());
-                    events.Add(temp);
-                }
+                this.events = events;
             }
         }
         public void ShowEvents()
         {
-            foreach (Event e in events)
-            {
+            foreach (IEvent e in events)
                 e.ShowEvent();
-            }
-                
         }
-        public string CheckEventConflicts()
+        public void ShowConflicts()
         {
-            //events[]
+            int conflictIndex = 1;
             for (int i = 0; i < events.Count; i++)
             {
-                for (int k = 0; k < events.Count; k++)
+                for (int k = i + 1; k < events.Count; k++)
                 {
-                    
-
-
+                    if (events[i].ConflictsWith(events[k]))
+                    {
+                        Period conflict = events[i].GetConflictPeriod(events[k]);
+                        Console.WriteLine("Conflict " + conflictIndex++ + ": Event " + events[i].Name + " conflicts with event " + events[k].Name +
+                            " between period " + conflict.Start.ToString("hh:mm dd/MM") + " and "
+                            + conflict.End.ToString("hh:mm dd/MM"));
+                    }
                 }
             }
-            return "";
-        }
 
+        }
     }
 }

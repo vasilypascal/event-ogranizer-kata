@@ -4,26 +4,39 @@ using System.Text;
 
 namespace EventOrganizerKata
 {
-    class Event
+    public class Event : IEvent
     {
-        string name;
-        public Period eventPeriod { get; set; }
+        public string Name { get; set; }
+        public Period EventPeriod { get; set; }
 
         public Event(string _event)
         {
             string[] temp = _event.Split(',');
-            name = temp[0];
-            eventPeriod.Start = Convert.ToDateTime(temp[1]);
-            eventPeriod.End = Convert.ToDateTime(temp[2]);
+            Name = temp[0];
+            EventPeriod = new Period(Convert.ToDateTime(temp[1]), Convert.ToDateTime(temp[2]));
+
+            //else throw new Exception("Line was not type of \"Event\"");
         }
+
+        public Event(string name, Period eventPeriod)
+        {
+            Name = name;
+            this.EventPeriod = eventPeriod;
+        }
+
         public void ShowEvent()
         {
-            Console.WriteLine(name + "," + eventPeriod);
+            Console.WriteLine(Name + ", " + EventPeriod.Start + "," + EventPeriod.End);
         }
-        public string GetTimeFrame()
+        public bool ConflictsWith(IEvent otherEvent)
         {
-         
-            return "";
+            if (EventPeriod.ConflictsWith(otherEvent.EventPeriod))
+                return true;
+            return false;
+        }
+        public Period GetConflictPeriod(IEvent otherEvent)
+        {
+            return EventPeriod.GetIntersectionsPeriodWith(otherEvent.EventPeriod);
         }
     }
 }

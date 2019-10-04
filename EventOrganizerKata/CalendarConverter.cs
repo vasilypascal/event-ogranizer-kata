@@ -5,23 +5,25 @@ using System.Text;
 
 namespace EventOrganizerKata
 {
-    public class CalendarConverter
+    public static class CalendarConverter
     {
-        StreamReader streamReader;
-        public CalendarConverter(StreamReader streamReader)
-        {
-            this.streamReader = streamReader;
-        }
-        //public List<Event> Conv(List<Event> events)
+        //StreamReader streamReader;
+        //public CalendarConverter(StreamReader streamReader)
         //{
-
-        //    var list = new List<Event>();
-        //    Event a = new Event("2009-08-15 14:32:00");
-        //    list.Add(a);
-        //    return list;
+        //    this.streamReader = streamReader;
         //}
-        
-
-
+        public static List<IEvent> ToListofEvents(string path)
+        {
+            List<IEvent> events = new List<IEvent>();
+            using (StreamReader streamReader = new StreamReader(path))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    Event tempEvent = new Event(streamReader.ReadLine());
+                    events.Add(tempEvent);
+                }
+            }
+            return events;
+        }
     }
 }

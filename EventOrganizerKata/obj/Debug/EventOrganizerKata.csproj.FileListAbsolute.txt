@@ -1,0 +1,7 @@
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\bin\Debug\EventOrganizerKata.exe.config
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\bin\Debug\EventOrganizerKata.exe
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\bin\Debug\EventOrganizerKata.pdb
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\obj\Debug\EventOrganizerKata.csprojAssemblyReference.cache
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\obj\Debug\EventOrganizerKata.csproj.CoreCompileInputs.cache
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\obj\Debug\EventOrganizerKata.exe
+C:\Users\vpascal\.NET Projects\event-ogranizer-kata\event-ogranizer-kata\EventOrganizerKata\obj\Debug\EventOrganizerKata.pdb
